@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <p style="font-size: 32px; font-weight: bold;">Lukas Resetarits celebrates 75th birthday</p>
+  <p style="font-size: 28px; font-weight: bold;">Der "Revolutionär des österreichischen Kabaretts" feiert heute seinen 75. Geburtstag.</p>
+
+  <p>Der Original-Artikel befindet sich auf <a href="https://wien.orf.at/stories/3177942/">dieser Seite</a>.</p>
+
+  <img alt="" src="https://via.placeholder.com/300x200" />
+  <p>Lukas Resetarits</p>
+
+  <p style="font-size: 20px; font-weight: bold;">Melde dich zum Newsletter an!</p>
+
+  <form>
+    <div class="row mb-2">
+      <div class="col-md-3">
+        <label>Vorname *</label><br />
+        <input type="text" name="vorname" [(ngModel)]="vorname" />
+      </div>
+      <div class="col-md-3">
+        <label>Nachname *</label><br />
+        <input type="text" name="nachname" [(ngModel)]="nachname" />
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <label>Was interessiert dich? *</label><br />
+        <input type="radio" name="interesse" value="musik" [(ngModel)]="interesse" /> Musik
+        <input type="radio" name="interesse" value="kultur" [(ngModel)]="interesse" /> Kultur
+        <input type="radio" name="interesse" value="sport" [(ngModel)]="interesse" /> Sport
+        <input type="radio" name="interesse" value="festival" [(ngModel)]="interesse" /> Festival
+      </div>
+
+      <div class="col-md-6">
+        <span *ngIf="interesse === 'musik'">Infos zu Konzerten ab *</span><br />
+        <input *ngIf="interesse === 'musik'" [(ngModel)]="konzerteAb" type="date" name="konzerteAb" />
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-12">
+        <button type="submit" (click)="submit()">Anmelden</button>
+        <button type="reset">Formular löschen</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="hidden" class="overlay" aria-hidden="true">
+</div>
